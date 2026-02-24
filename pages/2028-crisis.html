@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2028 Global Intelligence Crisis — Headlines · Sujayath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  .site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 30px 20px 0;
+  }
+  .site-nav a.nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #8a8577;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid #5a5549;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .site-nav a.nav-logo:hover { background: #8a8577; color: #1a1917; }
+  .site-nav .nav-links { display: flex; gap: 20px; }
+  .site-nav .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6a6355;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-nav .nav-links a:hover { color: #c5b99a; }
+  .attribution {
+    max-width: 680px;
+    margin: 0 auto 60px;
+    padding: 16px 20px;
+    border: 1px solid rgba(245,240,228,0.08);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: #5a5549;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .attribution a { color: #8a8577; text-decoration: underline; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1917;
+    min-height: 100vh;
+    padding: 60px 20px;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .page-title {
+    text-align: center;
+    color: #8a8577;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  .page-subtitle {
+    text-align: center;
+    color: #5a5549;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeIn 1s 0.3s ease forwards;
+  }
+
+  .timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #3a3730 10%, #3a3730 90%, transparent);
+    transform: translateX(-50%);
+  }
+
+  .date-marker {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin: 50px 0 30px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+  .date-marker span {
+    background: #1a1917;
+    color: #6a6355;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 0 20px;
+  }
+
+  /* NEWSPAPER CLIPPING */
+  .clipping {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto 50px;
+    opacity: 0;
+    animation: slideUp 0.7s ease forwards;
+  }
+  .clipping:nth-child(odd) { transform: rotate(-0.4deg); }
+  .clipping:nth-child(even) { transform: rotate(0.3deg); }
+
+  .newspaper {
+    background: #f5f0e4;
+    padding: 0;
+    position: relative;
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.3),
+      0 12px 40px rgba(0,0,0,0.4),
+      inset 0 0 60px rgba(139,130,110,0.15);
+    overflow: hidden;
+  }
+
+  /* Torn edge effect */
+  .newspaper::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    background: #f5f0e4;
+    z-index: -1;
+    filter: url(#torn);
+  }
+
+  /* Aged paper texture */
+  .newspaper::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(160,140,100,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(140,120,80,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Newspaper header bar */
+  .paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    border-bottom: 1px solid #c5b99a;
+    font-size: 9px;
+    color: #8a7e65;
+    font-family: 'Old Standard TT', serif;
+    letter-spacing: 1px;
+  }
+
+  .paper-name {
+    text-align: center;
+    padding: 12px 20px 6px;
+    border-bottom: 3px double #2a2520;
+    margin: 0 20px;
+  }
+  .paper-name h2 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 28px;
+    color: #1a1510;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .paper-name.modern h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .paper-name.bold h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #b22020;
+  }
+
+  .paper-body {
+    padding: 16px 24px 20px;
+  }
+
+  .section-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #b22020;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: #1a1510;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .headline.large { font-size: 32px; }
+  .headline.medium { font-size: 26px; }
+  .headline.small { font-size: 22px; }
+
+  .subhead {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 13px;
+    color: #4a4235;
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 10px;
+    border-left: 2px solid #c5b99a;
+    padding-left: 12px;
+  }
+
+  .byline {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9px;
+    color: #8a7e65;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .body-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 11px;
+    color: #3a3530;
+    line-height: 1.65;
+    column-count: 2;
+    column-gap: 24px;
+    column-rule: 1px solid #d5c9a9;
+  }
+  .body-text.single-col {
+    column-count: 1;
+  }
+
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #1a1510;
+    text-align: center;
+    padding: 14px 30px;
+    margin: 12px 0;
+    border-top: 1px solid #2a2520;
+    border-bottom: 1px solid #2a2520;
+    line-height: 1.35;
+  }
+
+  .market-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 20px;
+    background: #2a2520;
+    color: #f5f0e4;
+    font-family: 'Source Serif 4', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .market-bar .down { color: #e84040; }
+  .market-bar .up { color: #40b870; }
+
+  /* BREAKING NEWS variant */
+  .breaking .paper-name {
+    background: #b22020;
+    border-bottom: none;
+    margin: 0;
+    padding: 10px 20px 8px;
+  }
+  .breaking .paper-name h2 { color: #fff; }
+  .breaking .headline { color: #1a1510; }
+
+  /* FINANCIAL TIMES style */
+  .ft-style {
+    background: #fff1e0;
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.3),
+      0 12px 40px rgba(0,0,0,0.4);
+  }
+  .ft-style .paper-name { border-bottom-color: #1a1510; }
+  .ft-style .section-label { color: #990f3d; }
+
+  /* BLOOMBERG style */
+  .bb-style {
+    background: #f8f5ed;
+  }
+  .bb-style .paper-name {
+    border-bottom: 2px solid #1a1510;
+  }
+
+  /* Context card */
+  .context-card {
+    max-width: 680px;
+    margin: 0 auto 20px;
+    background: rgba(245,240,228,0.04);
+    border: 1px solid rgba(245,240,228,0.08);
+    border-radius: 2px;
+    padding: 16px 22px;
+    color: #7a7265;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 12px;
+    line-height: 1.6;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+  .context-card strong {
+    color: #a09585;
+    font-style: normal;
+  }
+
+  /* Tape effect */
+  .tape {
+    position: absolute;
+    width: 80px;
+    height: 22px;
+    background: rgba(245,230,180,0.45);
+    z-index: 10;
+    transform: rotate(-3deg);
+  }
+  .tape.top-left { top: -8px; left: 30px; transform: rotate(-8deg); }
+  .tape.top-right { top: -6px; right: 40px; transform: rotate(5deg); }
+  .tape.bottom-right { bottom: -6px; right: 25px; transform: rotate(-4deg); }
+
+  /* Pin */
+  .pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 40% 35%, #e8d8b8, #8a7a60);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 10;
+  }
+
+  /* Coffee stain */
+  .coffee-stain {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid rgba(139,110,60,0.06);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .clipping:nth-child(1) { animation-delay: 0.3s; }
+  .clipping:nth-child(2) { animation-delay: 0.5s; }
+  .clipping:nth-child(3) { animation-delay: 0.7s; }
+
+  /* Annotation - handwritten note */
+  .annotation {
+    position: absolute;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #b22020;
+    font-size: 11px;
+    transform: rotate(-4deg);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    color: #3a3730;
+    font-size: 18px;
+    margin: 40px 0 10px;
+    letter-spacing: 10px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  /* Highlight/redaction */
+  .highlight-yellow {
+    background: rgba(255,230,100,0.3);
+    padding: 0 2px;
+  }
+
+  .stamp {
+    position: absolute;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: rgba(178,32,32,0.35);
+    border: 3px solid rgba(178,32,32,0.35);
+    padding: 4px 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transform: rotate(-12deg);
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<!-- SVG filter for torn edges -->
+<svg width="0" height="0">
+  <filter id="torn">
+    <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="5" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<nav class="site-nav">
+  <a href="../index.html" class="nav-logo">S</a>
+  <div class="nav-links">
+    <a href="../index.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../links.html">Links</a>
+  </div>
+</nav>
+
+<div class="page-title">The 2028 Global Intelligence Crisis</div>
+<div class="page-subtitle">A timeline told in headlines — based on the Citrini Research scenario</div>
+
+<div class="timeline">
+
+  <!-- ==================== Q2–Q3 2026 ==================== -->
+  <div class="date-marker"><span>Q2 – Q3 2026 · The Euphoria</span></div>
+
+  <div class="context-card" style="animation-delay:0.4s">
+    <strong>Setting the scene:</strong> Agentic coding tools made a leap in late 2025. By mid-2026, enterprises discovered they could replicate mid-market SaaS products internally in weeks. AI-driven layoffs expanded margins, earnings beat expectations, and the market soared. The S&P 500 flirted with 8,000.
+  </div>
+
+  <div class="clipping" style="animation-delay:0.6s; transform: rotate(-0.5deg);">
+    <div class="tape top-left"></div>
+    <div class="newspaper">
+      <div class="market-bar">
+        <span>S&P 500: 7,946.22 <span class="up">▲ 1.3%</span></span>
+        <span>NASDAQ: 30,112 <span class="up">▲ 1.8%</span></span>
+        <span>10Y: 4.28%</span>
+        <span>VIX: 12.4</span>
+      </div>
+      <div class="paper-name">
+        <h2>The Wall Street Journal</h2>
+      </div>
+      <div class="paper-header">
+        <span>WEDNESDAY, AUGUST 14, 2026</span>
+        <span>VOL. CCLXXXVIII · NO. 38</span>
+        <span>$5.00</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Markets</div>
+        <div class="headline large">S&P 500 Nears 8,000 as AI-Fueled Earnings Crush Estimates for Fifth Straight Quarter</div>
+        <div class="subhead">Record corporate profits drive rally; productivity gains accelerate as firms replace white-collar roles with AI agents</div>
+        <div class="byline">By Michael Chen and Sarah Kessler · Updated Aug. 14, 2026 4:32 p.m. ET</div>
+        <div class="body-text">
+          U.S. equities surged to fresh highs as corporations reported another quarter of margin expansion driven by aggressive adoption of artificial intelligence tools. The S&P 500 rose 1.3% to close at 7,946, extending the longest streak of quarterly earnings beats in a decade. Operating margins across the index widened to 17.8%, a record, as companies replaced mid-level knowledge workers with AI agents at an accelerating pace. Nominal GDP growth printed at 6.1% annualized, though economists noted the gains were concentrated among capital owners. "The productivity story is extraordinary," said one portfolio manager at a major asset firm. "The question nobody wants to ask is who's buying what these companies sell."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SERVICENOW ==================== -->
+  <div class="date-marker" style="animation-delay:0.8s"><span>October 2026 · The First Crack</span></div>
+
+  <div class="context-card" style="animation-delay:0.9s">
+    <strong>The reflexivity trap:</strong> In-house AI builds gave enterprises negotiating leverage. SaaS companies faced price compression AND lost seats as their own clients cut headcount — the same AI-driven layoffs that boosted margins mechanically destroyed license revenue.
+  </div>
+
+  <div class="clipping" style="animation-delay:1s; transform: rotate(0.3deg);">
+    <div class="tape top-right"></div>
+    <div class="newspaper bb-style">
+      <div class="paper-name modern">
+        <h2>Bloomberg</h2>
+      </div>
+      <div class="paper-header">
+        <span>THURSDAY, OCTOBER 22, 2026</span>
+        <span>TECHNOLOGY</span>
+        <span>TERMINAL</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Enterprise Software</div>
+        <div class="headline medium">ServiceNow Net New ACV Growth Decelerates to 14% From 23%; Announces 15% Workforce Reduction and 'Structural Efficiency Program'</div>
+        <div class="subhead">Shares fall 18% in after-hours trading; management cites "fundamental repricing of enterprise software"</div>
+        <div class="byline">By Bloomberg News · Oct 22, 2026 5:47 p.m. ET</div>
+        <div class="body-text">
+          ServiceNow Inc. reported its sharpest deceleration in new contract value in the company's history, sending shares plunging in extended trading. CEO Bill McDermott acknowledged that AI-driven headcount reductions at client firms were mechanically reducing seat-based license demand. The company simultaneously announced it would cut 15% of its own workforce and reallocate savings into AI product development. "The company that sold workflow automation is being disrupted by better workflow automation," noted one analyst. The report triggered a broad selloff across enterprise SaaS names, with the BVP Cloud Index falling 7% in sympathy.
+        </div>
+      </div>
+    </div>
+    <div class="annotation" style="bottom: 15px; right: 25px; transform: rotate(-6deg);">
+      — the reflexivity is starting ↗
+    </div>
+  </div>
+
+  <!-- ==================== JOLTS ==================== -->
+  <div class="date-marker" style="animation-delay:1.1s"><span>October 2026 · The Labor Market Softens</span></div>
+
+  <div class="clipping" style="animation-delay:1.2s; transform: rotate(-0.6deg);">
+    <div class="newspaper">
+      <div class="paper-name">
+        <h2>The Washington Post</h2>
+      </div>
+      <div class="paper-header">
+        <span>FRIDAY, NOVEMBER 1, 2026</span>
+        <span>ECONOMY</span>
+        <span></span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Labor</div>
+        <div class="headline medium">U.S. Job Openings Fall Below 5.5 Million; Ratio of Unemployed to Openings Hits Highest Level Since August 2020</div>
+        <div class="subhead">JOLTS report shows white-collar postings collapsing while blue-collar demand holds steady; economists debate whether displacement is cyclical or structural</div>
+        <div class="byline">By Rachel Siegel · Nov 1, 2026 · Department of Labor / Bureau of Labor Statistics</div>
+        <div class="body-text">
+          The Bureau of Labor Statistics reported that job openings fell to 5.48 million in September, a 15% decline from a year earlier, led by steep drops in professional services, technology, and financial sectors. White-collar postings on Indeed fell sharply as companies cited "productivity initiatives" — corporate euphemism for replacing employees with AI systems. Blue-collar roles in construction, healthcare, and skilled trades remained comparatively resilient. Real wage growth, however, has been negative across both cohorts for the majority of 2026. The bond market reacted swiftly. The 10-year Treasury yield began a descent that would carry it from 4.3% to 3.2% over the following four months.
+        </div>
+      </div>
+    </div>
+    <div class="coffee-stain" style="top: -30px; right: -40px;"></div>
+  </div>
+
+  <!-- ==================== MASTERCARD ==================== -->
+  <div class="date-marker" style="animation-delay:1.4s"><span>Spring 2027 · Friction Goes to Zero</span></div>
+
+  <div class="context-card" style="animation-delay:1.5s">
+    <strong>The agent economy arrives:</strong> By early 2027, AI agents ran in the background on every device — optimizing purchases, canceling unused subscriptions, re-shopping insurance, and routing payments through stablecoins to avoid card interchange fees. The median American consumed 400,000 tokens per day. Trillions of dollars of enterprise value built on human friction began to evaporate.
+  </div>
+
+  <div class="clipping" style="animation-delay:1.6s; transform: rotate(0.4deg);">
+    <div class="tape top-left"></div>
+    <div class="tape bottom-right"></div>
+    <div class="newspaper bb-style">
+      <div class="paper-name modern">
+        <h2>Bloomberg</h2>
+      </div>
+      <div class="paper-header">
+        <span>TUESDAY, APRIL 29, 2027</span>
+        <span>PAYMENTS & FINTECH</span>
+        <span>TERMINAL</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Earnings</div>
+        <div class="headline medium">Mastercard Q1 2027: Net Revenues +6% Y/Y; Purchase Volume Growth Slows to +3.4% From +5.9% Prior Quarter</div>
+        <div class="subhead">Management notes "agent-led price optimization" and "pressure in discretionary categories"; Visa drops 9% in sympathy before paring losses on stablecoin positioning</div>
+        <div class="byline">By Bloomberg Intelligence · April 29, 2027 5:12 p.m. ET</div>
+        <div class="body-text single-col">
+          Mastercard reported its weakest volume growth in over a decade, confirming that AI-driven agentic commerce had moved from product curiosity to systemic threat. Consumer agents, now standard on every major device platform, were routing an increasing share of transactions through stablecoin rails on Solana and Ethereum L2s, bypassing the 2-3% card interchange rate entirely. American Express was hit hardest — facing a dual headwind of white-collar workforce reductions gutting its cardholder base and agents routing around its fee model. Synchrony, Capital One and Discover all fell more than 10% in the following weeks. "Their moats were made of friction," one analyst wrote. "And friction is going to zero."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MOODY'S DOWNGRADE ==================== -->
+  <div class="date-marker" style="animation-delay:1.8s"><span>April 2027 · Private Credit Cracks</span></div>
+
+  <div class="context-card" style="animation-delay:1.9s">
+    <strong>The hidden leverage:</strong> Private credit had ballooned to $2.5 trillion. A huge slice was deployed into leveraged buyouts of SaaS companies — underwritten at valuations assuming mid-teens revenue growth forever. Those assumptions died, but the marks hadn't caught up.
+  </div>
+
+  <div class="clipping" style="animation-delay:2s; transform: rotate(-0.3deg);">
+    <div class="pin"></div>
+    <div class="newspaper">
+      <div class="paper-name bold">
+        <h2>Moody's Investors Service</h2>
+      </div>
+      <div class="paper-header">
+        <span>APRIL 14, 2027</span>
+        <span>RATING ACTION</span>
+        <span>CREDIT OPINION</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Sector Downgrade</div>
+        <div class="headline small">Moody's Downgrades $18 Billion of PE-Backed Software Debt Across 14 Issuers, Citing 'Secular Revenue Headwinds From AI-Driven Competitive Disruption'</div>
+        <div class="subhead">Largest single-sector rating action since energy in 2015; triggers covenant reviews across private credit portfolios</div>
+        <div class="byline">Moody's Investors Service · Rating Action · April 14, 2027</div>
+        <div class="body-text">
+          Moody's downgraded a broad swath of privately-rated software debt, the largest single-sector action in over a decade, citing fundamental deterioration in recurring revenue assumptions that underpinned the original credit analysis. The downgrades affected direct lending facilities originated by major alternative asset managers including Blackstone, Apollo, Blue Owl and HPS. Software-backed loans began defaulting in earnest. PE portfolio companies in information services and consulting followed. The action triggered immediate covenant reviews and forced marks lower across portfolios that had been quietly carrying impaired assets at acquisition-era valuations.
+        </div>
+      </div>
+    </div>
+    <div class="stamp" style="top: 40px; right: 30px;">Downgrade</div>
+  </div>
+
+  <!-- ==================== JOBLESS CLAIMS ==================== -->
+  <div class="date-marker" style="animation-delay:2.2s"><span>Q3 2027 · The Dam Breaks</span></div>
+
+  <div class="context-card" style="animation-delay:2.3s">
+    <strong>The displacement spiral accelerates:</strong> Displaced white-collar workers flooded the gig economy, compressing wages economy-wide. A former $180K Salesforce product manager was now driving for Uber at $45K. Multiply by hundreds of thousands across every major metro.
+  </div>
+
+  <div class="clipping" style="animation-delay:2.4s; transform: rotate(0.5deg);">
+    <div class="tape top-right"></div>
+    <div class="newspaper breaking">
+      <div class="paper-name">
+        <h2>Financial Times</h2>
+      </div>
+      <div class="paper-header">
+        <span>THURSDAY, JULY 17, 2027</span>
+        <span>U.S. ECONOMY</span>
+        <span>BREAKING</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Breaking News · Labor</div>
+        <div class="headline large">U.S. Initial Jobless Claims Surge to 487,000 — Highest Since April 2020</div>
+        <div class="subhead">ADP and Equifax confirm overwhelming majority of new filings from white-collar professionals; S&P falls 6% in a week</div>
+        <div class="byline">By Colby Smith and Claire Jones · Washington · July 17, 2027</div>
+        <div class="pull-quote">"The top 10% of earners account for more than 50% of all consumer spending. When these workers lose their jobs, the consumption hit is enormous relative to the jobs lost."</div>
+        <div class="body-text single-col">
+          The Department of Labor reported initial jobless claims surged to 487,000, the highest weekly figure since the pandemic shutdowns of April 2020. The composition stunned economists: the filings were overwhelmingly concentrated among white-collar professionals in technology, finance, consulting, and legal services. Unlike past recessions where blue- and white-collar layoffs tracked roughly in proportion, this cycle's losses were concentrated in the upper deciles of the income distribution — the workers who drive a wildly disproportionate share of consumer spending. The S&P 500 dropped 6% over the following week. By Q2 2027, the economy was in recession by every measure except official NBER dating, which, as always, would come months later.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ZENDESK ==================== -->
+  <div class="date-marker" style="animation-delay:2.6s"><span>September 2027 · The Smoking Gun</span></div>
+
+  <div class="clipping" style="animation-delay:2.7s; transform: rotate(-0.4deg);">
+    <div class="tape top-left"></div>
+    <div class="newspaper ft-style">
+      <div class="paper-name modern">
+        <h2>Financial Times</h2>
+      </div>
+      <div class="paper-header">
+        <span>MONDAY, SEPTEMBER 15, 2027</span>
+        <span>PRIVATE CAPITAL</span>
+        <span>£4.40</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Exclusive</div>
+        <div class="headline medium">Zendesk Misses Debt Covenants as AI-Driven Automation Erodes ARR; $5B Lending Facility Marked to 58 Cents</div>
+        <div class="subhead">Largest private credit software default on record; Blackstone-led lending group faces losses on deal underwritten at 25× EBITDA</div>
+        <div class="byline">By Harriet Agnew and Antoine Gara · London / New York · Sept 15, 2027</div>
+        <div class="body-text">
+          Zendesk, taken private in 2022 by Hellman & Friedman and Permira for $10.2 billion, has missed covenants on its $5 billion direct lending facility — the largest ARR-backed loan in history. The facility, led by Blackstone with Apollo, Blue Owl and HPS in the lending group, was explicitly structured around the assumption that annual recurring revenue would remain recurring. By mid-2027, it was not. AI agents had been resolving customer service issues autonomously, bypassing the ticketing and routing systems Zendesk had defined as a category. The annualized recurring revenue the loan was underwritten against was no longer recurring — it was revenue that simply had not yet departed. Every credit desk asked the same question at once: who else has a secular headwind disguised as a cyclical one?
+        </div>
+      </div>
+    </div>
+    <div class="annotation" style="top: 50px; left: -10px; transform: rotate(-90deg); font-size: 10px;">
+      the daisy chain ↓
+    </div>
+  </div>
+
+  <!-- ==================== INSURANCE CRISIS ==================== -->
+  <div class="date-marker" style="animation-delay:2.9s"><span>November 2027 · The Crash</span></div>
+
+  <div class="context-card" style="animation-delay:3s">
+    <strong>The "permanent capital" myth:</strong> Alternative asset managers had acquired life insurers — Apollo bought Athene, KKR took Global Atlantic — turning annuity deposits into funding for private credit. The "permanent capital" that couldn't run was the savings of American households, structured as annuities invested in the very software paper now defaulting. Fed Chair Kevin Warsh called it "a daisy chain of correlated bets on white-collar productivity growth."
+  </div>
+
+  <div class="clipping" style="animation-delay:3.1s; transform: rotate(0.2deg);">
+    <div class="pin"></div>
+    <div class="newspaper">
+      <div class="paper-name">
+        <h2>The New York Times</h2>
+      </div>
+      <div class="paper-header">
+        <span>SATURDAY, NOVEMBER 22, 2027</span>
+        <span>LATE EDITION</span>
+        <span>$4.00</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Financial Regulation</div>
+        <div class="headline medium">State Regulators Move to Tighten Capital Rules for Life Insurers Holding Private Credit; Moody's Puts Athene on Negative Outlook</div>
+        <div class="subhead">Apollo shares drop 22% in two sessions; Blackstone, KKR, Brookfield follow as markets question the architecture of alternative asset management</div>
+        <div class="byline">By Matt Phillips and Rob Copeland · Nov 22, 2027</div>
+        <div class="body-text">
+          The November 2027 crash marked the moment perception shifted from a garden-variety cyclical drawdown to something far more systemic. New York and Iowa state regulators announced moves to tighten capital treatment for privately-rated credit held by life insurers, with NAIC guidance expected to increase risk-based capital factors. The action forced insurers to either raise capital or sell assets — neither possible at attractive terms in a seizing market. The elaborate offshore architecture connecting U.S. annuity writers to Bermuda reinsurers to private credit vehicles created a web of counterparty exposure that was, in the words of one regulator, "genuinely unanswerable in real time." Apollo's stock cratered after Moody's placed Athene's financial strength rating on negative outlook. The alternative asset management model — a fee-on-fee perpetual motion machine — had worked beautifully under one condition: the private credit had to be money good. It no longer was.
+        </div>
+      </div>
+    </div>
+    <div class="stamp" style="top: 70px; right: 40px; transform: rotate(-15deg);">Systemic Risk</div>
+  </div>
+
+  <!-- ==================== MORTGAGES ==================== -->
+  <div class="date-marker" style="animation-delay:3.3s"><span>June 2028 · The Mortgage Question</span></div>
+
+  <div class="context-card" style="animation-delay:3.4s">
+    <strong>The final domino:</strong> Home prices fell 11% in San Francisco, 9% in Seattle, 8% in Austin. Fannie Mae flagged delinquencies in ZIP codes populated by 780+ FICO borrowers — people who were "bulletproof" three years ago. The $13 trillion mortgage market was repricing the assumption that prime borrowers would remain employed at their current income for 30 years.
+  </div>
+
+  <div class="clipping" style="animation-delay:3.5s; transform: rotate(-0.5deg);">
+    <div class="tape top-right"></div>
+    <div class="tape top-left"></div>
+    <div class="newspaper breaking">
+      <div class="market-bar">
+        <span>S&P 500: 4,928 <span class="down">▼ 2.0%</span></span>
+        <span>NASDAQ: 16,440 <span class="down">▼ 2.7%</span></span>
+        <span>10Y: 2.81%</span>
+        <span>VIX: 42.6</span>
+      </div>
+      <div class="paper-name">
+        <h2>The Wall Street Journal</h2>
+      </div>
+      <div class="paper-header">
+        <span>FRIDAY, JUNE 30, 2028</span>
+        <span>VOL. CCXC · NO. 152</span>
+        <span>$5.00</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Housing · Crisis</div>
+        <div class="headline large">Home Prices Fall Double Digits in Tech Hubs; Fannie Mae Flags Delinquencies Among 'Bulletproof' Borrowers</div>
+        <div class="subhead">Unemployment hits 10.2%; S&P 500 now down 38% from October 2026 highs; economists ask: are prime mortgages money good?</div>
+        <div class="byline">By Nicole Friedman and Nick Timiraos · June 30, 2028 6:14 a.m. ET</div>
+        <div class="pull-quote">"In 2008, the loans were bad on day one. In 2028, the loans were good on day one. The world just…changed after they were written."</div>
+        <div class="body-text">
+          The Zillow Home Value Index fell 11% year-over-year in San Francisco, 9% in Seattle and 8% in Austin. Fannie Mae disclosed elevated early-stage delinquencies in ZIP codes with more than 40% tech and finance employment — areas populated by high-FICO borrowers who were considered the bedrock of mortgage credit quality. HELOC draws, 401(k) withdrawals and credit card debt have spiked as households struggle to stay current. The unemployment rate printed 10.2% Friday morning. The S&P has now fallen 38% from its October 2026 peak. The $13 trillion residential mortgage market is confronting a question that seemed absurd three years ago: whether the income assumptions underlying prime mortgage underwriting have been structurally impaired by artificial intelligence.
+        </div>
+      </div>
+    </div>
+    <div class="coffee-stain" style="bottom: -35px; left: -25px;"></div>
+  </div>
+
+  <!-- ==================== SOCIAL UNREST ==================== -->
+  <div class="date-marker" style="animation-delay:3.7s"><span>Mid-2028 · The Reckoning</span></div>
+
+  <div class="clipping" style="animation-delay:3.8s; transform: rotate(0.3deg);">
+    <div class="tape top-left"></div>
+    <div class="newspaper">
+      <div class="paper-name">
+        <h2>The New York Times</h2>
+      </div>
+      <div class="paper-header">
+        <span>SUNDAY, MAY 19, 2028</span>
+        <span>NATIONAL</span>
+        <span>LATE EDITION</span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">Society</div>
+        <div class="headline medium">'Occupy Silicon Valley' Blockades AI Labs for Third Week; Demonstrators Demand 'Shared AI Prosperity Act'</div>
+        <div class="subhead">Federal receipts run 12% below projections as the government confronts a crisis its tax code was never designed for</div>
+        <div class="byline">By David Streitfeld and Noam Scheiber · San Francisco · May 19, 2028</div>
+        <div class="body-text">
+          For a third consecutive week, demonstrators blockaded the entrances to Anthropic and OpenAI's San Francisco headquarters, part of a growing national movement that has drawn more media coverage than the unemployment data that prompted it. The protests reflect a deeper structural crisis: the federal government's revenue base is essentially a tax on human time, and that base is eroding. Labor's share of GDP has plunged from 56% in 2024 to 46% — the sharpest decline in recorded history. Bipartisan proposals for a "Transition Economy Act" and the more radical "Shared AI Prosperity Act" remain stalled in committee, caught between accusations of Marxism from the right and concerns about regulatory capture from the left. The real villain, economists say, is time. AI capability is evolving faster than institutions can adapt. The policy response is moving at the pace of ideology, not reality.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INDIA ==================== -->
+  <div class="date-marker" style="animation-delay:4s"><span>Global Fallout</span></div>
+
+  <div class="clipping" style="animation-delay:4.1s; transform: rotate(-0.3deg);">
+    <div class="newspaper ft-style">
+      <div class="paper-name modern">
+        <h2>Financial Times</h2>
+      </div>
+      <div class="paper-header">
+        <span>WEDNESDAY, FEBRUARY 7, 2028</span>
+        <span>EMERGING MARKETS</span>
+        <span></span>
+      </div>
+      <div class="paper-body">
+        <div class="section-label">India</div>
+        <div class="headline small">Indian Rupee Falls 18% in Four Months as IT Services Exports Collapse; IMF Begins 'Preliminary Discussions' With New Delhi</div>
+        <div class="subhead">TCS, Infosys and Wipro face accelerating contract cancellations as the cost of an AI coding agent falls below the cost of an Indian developer</div>
+        <div class="byline">By Benjamin Parkin and Amy Kazmin · Mumbai · Feb 7, 2028</div>
+        <div class="body-text single-col">
+          India's IT services sector, which exported over $200 billion annually and served as the single largest contributor to the country's current account surplus, has been devastated by the collapse in marginal cost of AI-driven software development. The entire outsourcing model was built on one value proposition: Indian developers cost a fraction of their American counterparts. That proposition lost its meaning when the cost of an AI coding agent fell to the price of electricity. TCS, Infosys and Wipro have seen contract cancellations accelerate through 2027 and into early 2028. The rupee's 18% decline against the dollar over four months has strained the external accounts that financed India's persistent goods trade deficit.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== EPILOGUE ==================== -->
+  <div class="divider-ornament" style="animation-delay:4.3s">· · · ◆ · · ·</div>
+
+  <div class="context-card" style="animation-delay:4.4s; border-color: rgba(178,32,32,0.2); margin-top: 30px; margin-bottom: 40px;">
+    <strong>But you're not reading this in June 2028. You're reading it in February 2026.</strong><br><br>
+    The S&P is near all-time highs. The negative feedback loops have not begun. The canary is still alive. This is a scenario, not a prediction — a thought exercise from Citrini Research exploring what happens when the most productive asset in the economy produces fewer, not more, jobs. Whether we build the frameworks to navigate this in time is the only question that matters.
+  </div>
+
+  <div class="attribution">
+    ⚠️ <strong>Disclaimer:</strong> These are fictional newspaper clippings from a speculative scenario — not real headlines.<br>
+    Based on <a href="https://www.citriniresearch.com/p/2028gic" target="_blank">"The 2028 Global Intelligence Crisis"</a> by Citrini Research &amp; Alap Shah.
+  </div>
+
+<script>
+  // Stagger animations on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.clipping, .context-card, .date-marker, .divider-ornament').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
