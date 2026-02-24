@@ -242,46 +242,43 @@ img { max-width: 100%; display: block; }
 .about-content p:last-child { margin-bottom: 0; }
 
 /* ============================================
-   LINKS PAGE
+   TAG FILTER
    ============================================ */
-.links-list {
-  list-style: none;
+.tag-filter {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-md);
   display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.links-list li a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  border: 1px solid var(--color-border-light);
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  font-size: 15px;
-  font-weight: 500;
-}
-.links-list li a:hover {
-  border-color: var(--color-border);
-  background: var(--color-surface);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-.links-list .link-icon {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-bg);
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-.links-list .link-desc {
+.tag-btn {
+  font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 400;
-  color: var(--color-text-tertiary);
-  margin-top: 2px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 6px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.4;
+}
+.tag-btn:hover {
+  border-color: var(--color-text-tertiary);
+  color: var(--color-text);
+}
+.tag-btn.active {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+.post.hidden {
+  display: none;
 }
 
 /* ============================================
@@ -400,4 +397,5 @@ img { max-width: 100%; display: block; }
   .nav-links a { font-size: 13px; }
   .post-title { font-size: 22px; }
   .post { padding: var(--space-md) 0; }
+  .tag-btn { font-size: 12px; padding: 5px 12px; }
 }
