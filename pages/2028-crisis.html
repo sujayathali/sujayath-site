@@ -413,6 +413,40 @@
     animation: fadeIn 0.5s ease forwards;
   }
 
+  .tag-filter {
+    max-width: 680px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 6px 16px;
+    border: 1px solid #3a3730;
+    border-radius: 20px;
+    background: transparent;
+    color: #6a6355;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.4;
+  }
+  .tag-btn:hover {
+    border-color: #8a8577;
+    color: #c5b99a;
+  }
+  .tag-btn.active {
+    background: #c5b99a;
+    color: #1a1917;
+    border-color: #c5b99a;
+  }
+
   /* Highlight/redaction */
   .highlight-yellow {
     background: rgba(255,230,100,0.3);
@@ -451,6 +485,14 @@
     <a href="../about.html">About</a>
   </div>
 </nav>
+
+<div class="tag-filter">
+  <a href="../" class="tag-btn">All</a>
+  <a href="../#startup" class="tag-btn">Startup</a>
+  <a href="../blog/poems.html" class="tag-btn">Poems</a>
+  <a href="../blog/tamil-poems.html" class="tag-btn">தமிழ் கவிதை</a>
+  <a href="../blog/talks.html" class="tag-btn">Talks & Interviews</a>
+</div>
 
 <div class="page-title">The 2028 Global Intelligence Crisis</div>
 <div class="page-subtitle">A timeline told in headlines — based on the Citrini Research scenario</div>
