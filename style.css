@@ -247,7 +247,7 @@ img { max-width: 100%; display: block; }
 .tag-filter {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-md) var(--space-md);
+  padding: 0 var(--space-md) var(--space-lg);
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
