@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remember.Plugin — Personal memory for Claude Cowork and Claude Code</title>
+  <meta name="description" content="A plugin that turns your Claude conversations into structured markdown notes. Zero infrastructure. Pure markdown. Your data stays on your machine.">
+  <meta property="og:title" content="Remember.Plugin — Personal memory for Claude Cowork and Claude Code">
+  <meta property="og:description" content="Type /remember in any Claude conversation. Your chat becomes structured markdown notes in a folder you control.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2563eb;
+      --bg: #fafafa;
+      --bg-code: #f0f0f0;
+      --border: #e5e5e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin: 0 0 2.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 3rem 0 1rem;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin: 2rem 0 0.5rem;
+      font-weight: 600;
+    }
+    p { margin: 1rem 0; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      background: var(--bg-code);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.92em;
+    }
+    pre {
+      background: var(--bg-code);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.92em;
+      line-height: 1.5;
+    }
+    pre code {
+      background: transparent;
+      padding: 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .cta {
+      display: inline-block;
+      background: var(--text);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      margin: 1rem 0.5rem 1rem 0;
+      transition: background 0.1s;
+    }
+    .cta:hover {
+      background: var(--accent);
+      text-decoration: none;
+    }
+    .cta-secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .cta-secondary:hover {
+      border-color: var(--text);
+      background: white;
+      color: var(--text);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95em;
+    }
+    th, td {
+      padding: 0.65rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      background: #f4f4f4;
+    }
+    ul, ol { padding-left: 1.5rem; }
+    li { margin: 0.4rem 0; }
+    .feature-list li { margin: 0.6rem 0; }
+    .small { font-size: 0.9rem; color: var(--muted); }
+    .divider {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+    footer {
+      margin-top: 4rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      body { padding: 2rem 1rem 3rem; font-size: 16px; }
+      h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.3rem; }
+      .cta { display: block; text-align: center; margin: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Remember.Plugin</h1>
+<p class="tagline">A plugin for Claude Cowork and Claude Code that saves your conversations as you chat and turns them into structured markdown notes.</p>
+
+<p>
+  <a href="https://github.com/sujayathali/remember/releases/latest/download/remember.plugin" class="cta" download>Download remember.plugin</a>
+  <a href="https://github.com/sujayathali/remember" class="cta cta-secondary">View on GitHub</a>
+</p>
+
+<p>Open any Claude Cowork conversation. Type <code>/remember</code> and your chat gets distilled into typed markdown files — decisions, preferences, facts, people — saved into a folder you control.</p>
+
+<p>As you keep talking, memory updates continuously in the background. Bring in existing documents with <code>/ingest</code>. Run <code>/lint</code> every few weeks to keep things tidy.</p>
+
+<p><strong>Zero infrastructure. Pure markdown. Your data stays on your machine.</strong></p>
+
+<h2>Install</h2>
+
+<ol>
+  <li>Download <code>remember.plugin</code> using the button above</li>
+  <li>Open a new Cowork chat and drag the downloaded file into the chat input</li>
+  <li>Type: <em>Show this plugin file as a card so I can save it.</em></li>
+  <li>A card appears with a <strong>Save plugin</strong> button — click it</li>
+  <li>Go to any Claude Code / Cowork chat and type <code>/remember</code> to get started</li>
+</ol>
+
+<h2>What you get</h2>
+
+<table>
+  <thead>
+    <tr><th>Skill</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Remember</strong></td>
+      <td>Capture durable facts from the current chat into typed atomic files + daily journal</td>
+    </tr>
+    <tr>
+      <td><strong>Ingest</strong></td>
+      <td>Bring existing documents (MD, TXT, PDF, Word, PowerPoint) into memory. Only new and changed files processed by default.</td>
+    </tr>
+    <tr>
+      <td><strong>Start memory folder</strong></td>
+      <td>When you don't have a folder yet, sets up one for you</td>
+    </tr>
+    <tr>
+      <td><strong>Bootstrap</strong></td>
+      <td>Set up the memory structure in any folder; chains to Ingest if documents are found</td>
+    </tr>
+    <tr>
+      <td><strong>Lint</strong></td>
+      <td>Layered health check across atomic memory, journal, CLAUDE.md, and wiki. Auto-fixes legacy patterns.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>What it does for you</h2>
+
+<ul class="feature-list">
+  <li><strong>Notes that organize themselves.</strong> Your conversations become markdown files — decisions, references, people, preferences — automatically sorted into the right folders.</li>
+  <li><strong>Works while you talk.</strong> Important facts get captured in the background as you chat. No commands needed for everyday capture, though you can always use <code>/remember</code> to checkpoint explicitly.</li>
+  <li><strong>Bring in existing documents.</strong> Drop PDFs, Word docs, presentations, or markdown into your folder. The plugin reads them, extracts the durable facts, and adds them to your memory. Add more later — only the new ones get processed.</li>
+  <li><strong>Per-project, not one big brain.</strong> Each project has its own memory. Share a project's folder for work without exposing your personal notes. Archive a project without entangling others.</li>
+  <li><strong>Auto-captures people.</strong> When you mention someone with real context (a role, a decision attributed, an action they took), a profile gets created or updated. No more "wait, who was that person again?"</li>
+  <li><strong>Works with Obsidian.</strong> Open your folder as an Obsidian vault for a graph view of how everything connects. The plugin uses Obsidian-compatible markdown.</li>
+  <li><strong>Files you own forever.</strong> Pure markdown in folders you choose. Open in any text editor. MIT licensed and open source. Uninstall the plugin and your notes keep working.</li>
+  <li><strong>Educational chaining.</strong> When the plugin does something automatically, it tells you the underlying command so you can use it directly next time. The plugin teaches itself through use.</li>
+</ul>
+
+<h2>Architecture</h2>
+
+<p>Dual-layer model: atomic memory (typed facts) + synthesized wiki (narrative pages with cross-links). Atomic files live at <code>memory/{feedback,projects,reference,people}/</code>. Wiki pages use <code>[[wikilinks]]</code> — open your folder as an Obsidian vault if you like, it works natively.</p>
+
+<p class="small">Inspired by Andrej Karpathy's LLM-Wiki insight (local markdown as the LLM's context substrate), structured using Andy Matuschak's evergreen + structure notes pattern, with Niklas Luhmann's Strukturzettel as the wiki layer.</p>
+
+<h2>Privacy &amp; data</h2>
+
+<ul>
+  <li><strong>Everything stays local.</strong> Files are created in folders you choose. Zero network calls beyond Claude's normal conversation traffic.</li>
+  <li><strong>No telemetry.</strong> The plugin doesn't phone home.</li>
+  <li><strong>No accounts.</strong> No signup. No login. No vendor lock-in.</li>
+  <li><strong>Open source.</strong> Read the code, fork it, modify it.</li>
+  <li><strong>Portable.</strong> If you uninstall, every file the plugin created is still readable in any text editor.</li>
+</ul>
+
+<h2>Compatibility</h2>
+
+<ul>
+  <li>Claude Cowork (Anthropic's desktop knowledge-work app)</li>
+  <li>Claude Code (CLI — same plugin format)</li>
+  <li>Files are pure markdown — readable in Obsidian, Logseq, any text editor</li>
+</ul>
+
+<hr class="divider">
+
+<footer>
+  <p>Built by Sujayath and Shayan. MIT licensed. <a href="https://github.com/sujayathali/remember">Source on GitHub</a>.</p>
+  <p>v1.0.0 — first public release, 2026-06-10. <a href="https://github.com/sujayathali/remember/blob/main/plugins/remember/CHANGELOG.md">Changelog</a>.</p>
+</footer>
+
+</body>
+</html>
