@@ -369,6 +369,9 @@ img { max-width: 100%; display: block; }
 .footer-social {
   color: var(--color-text-tertiary);
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .footer-social:hover {
   color: var(--color-text);
