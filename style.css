@@ -240,6 +240,16 @@ img { max-width: 100%; display: block; }
   margin-bottom: var(--space-md);
 }
 .about-content p:last-child { margin-bottom: 0; }
+.about-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(196, 90, 60, 0.3);
+  transition: text-decoration-color 0.2s;
+}
+.about-content a:hover {
+  text-decoration-color: var(--color-accent);
+}
 
 /* ============================================
    TAG FILTER
