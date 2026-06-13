@@ -1,0 +1,5 @@
+# Editor backups
+*.bak
+
+# macOS
+.DS_Store
