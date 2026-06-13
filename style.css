@@ -412,3 +412,54 @@ img { max-width: 100%; display: block; }
   .post { padding: var(--space-md) 0; }
   .tag-btn { font-size: 12px; padding: 5px 12px; }
 }
+
+/* ============================================
+   PROMO BANNER (Remember launch)
+   ============================================ */
+.promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-body);
+  padding: 12px 24px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+.promo-banner:hover { background: #ab4a30; }
+.promo-banner__tag {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.promo-banner__body {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+.promo-banner__title { font-size: 14px; font-weight: 600; line-height: 1.4; }
+.promo-banner__text { font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, 0.88); }
+.promo-banner__cta {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .promo-banner { padding: 11px 16px; gap: 6px 10px; }
+  .promo-banner__body { text-align: center; }
+  .promo-banner__cta { width: 100%; }
+}
