@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Memory Shouldn't Live in Someone Else's Database — Sujayath</title>
+<meta name="description" content="When the US switched off Fable 5, I moved every Claude session to 4.8 overnight and lost zero memory. Why your AI memory should live in plain local files you own - the Remember protocol.">
+<link rel="canonical" href="https://sujayath.com/blog/ai-memory.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="../" class="nav-logo">S</a>
+  <div class="nav-links">
+    <a href="../">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../pages/2028-crisis.html">Featured</a>
+  </div>
+</nav>
+<div class="page-header">
+  <a href="../" class="back-link">← Back to all posts</a>
+  <h1>AI Memory Shouldn't Live in Someone Else's Database</h1>
+  <div class="page-meta">June 2026 · AI</div>
+</div>
+<div class="prose">
+<p>When the US switched off Fable 5 last week, I had to move all my Claude sessions back to 4.8 overnight. However, I lost zero memory in the move.</p>
+<p>I used Remember, a little open-source memory plugin I wrote myself for Claude, which lives entirely on your computer and is built on a protocol I think solves the structural problem with personal AI memory.</p>
+<p>This post explains the protocol behind it.</p>
+
+<h2>The default architecture is wrong</h2>
+<p>Two modes dominate the current solution landscape. Vendor-controlled memory (e.g., ChatGPT Memory; Anthropic's Claude Projects) persists user facts in the platform's database, scoped per account, locked to one provider. Single-global-brain systems (gBrain, Roam-style global graphs, Mem at vendor scale) collapse all the user's contexts into one corpus, sacrificing per-context relevance — a household administrative question may surface coding-project results.</p>
+<p>That's the wrong architecture.</p>
+<p>Your AI memory should be:</p>
+<ul>
+<li><strong>Local</strong> — on your filesystem, not in someone else's database</li>
+<li><strong>Per-folder</strong> — scoped to a project, not a single global brain</li>
+<li><strong>Plain markdown</strong> — readable by any text editor</li>
+<li><strong>Portable</strong> — switching AI providers loses zero memory</li>
+</ul>
+<p>Remember is the protocol that delivers this. It's structurally similar to Karpathy's three-layer note system, realized as a plugin you install once.</p>
+
+<h2>The protocol</h2>
+<p>Four primitive verbs plus one flagship application:</p>
+<ul>
+<li><strong>Remember</strong> — capture durable facts from the current chat into typed atomic markdown files</li>
+<li><strong>Ingest</strong> — bulk-import existing documents (PDF, Word, PowerPoint, markdown)</li>
+<li><strong>Refresh-wiki</strong> — synthesize atoms into a wiki layer; detect drift; update pages</li>
+<li><strong>Lint</strong> — layered health check across the memory system</li>
+</ul>
+<p>And the application:</p>
+<ul>
+<li><strong>Checkin</strong> — a daily productivity ritual that pulls from calendar, email, Slack, and task-tracker connectors and writes findings into the memory layer</li>
+</ul>
+<p>Each folder you "remember" becomes a memory project. Five typed folders for atoms (feedback/, projects/, reference/, people/, glossary/), an auto-regenerated MEMORY.md index, and an optional wiki/ layer for synthesized knowledge.</p>
+<p>Five atom types map cleanly to common questions:</p>
+<ul>
+<li><strong>feedback</strong> — how does my collaborator like to work?</li>
+<li><strong>projects</strong> — what's the status of X?</li>
+<li><strong>reference</strong> — what's our agreed definition of Y?</li>
+<li><strong>people</strong> — who is Z?</li>
+<li><strong>glossary</strong> — what does this acronym mean?</li>
+</ul>
+<p>That's it. No database. No embeddings. No vendor schema. Just typed markdown on your disk, open in any editor.</p>
+
+<h2>The hardest problem: continuous active maintenance</h2>
+<p>The headline promise of any AI memory system is: as you work, the memory stays current. You don't have to type a save command.</p>
+<p>This is unreasonably hard.</p>
+<p>Earlier, Remember relied on instruction-based maintenance: the CLAUDE.md said "Continuous active maintenance: ON" and the agent was supposed to comply. Field testing revealed this is unreliable. Sessions spanning eight hours of substantive conversation produced ONE atom write — not the expected 15-20.</p>
+<p>Why? Continuous maintenance is ambient behavior. There's no execution boundary, no defined post-condition. The agent reads the spec, intends to comply, then under attention pressure (a substantive conversation, a complex task) silently skips. The behavior is referenced in the spec but not structurally enforced.</p>
+<p>The fix was a per-response hook. At the end of each substantive agent turn, a Stop hook mechanically runs the capture pass. The hook gives the maintenance loop the execution boundary it lacked. Plus a Lint backstop that catches under-firing after the fact.</p>
+<p>Three tiers of memory persistence: hook-driven maintenance (structurally enforced), Lint backstop (after-the-fact detection), explicit Remember (user-initiated, fully verifiable). The user experience is "memory stays current"; the structure underneath is layered redundancy.</p>
+
+<h2>What's next: composing the protocol upward</h2>
+<p>Remember works at personal scale. The more interesting question is whether the protocol composes upward into team and organizational scale. It does.</p>
+<p>A shared folder (Dropbox, S3 bucket, Git repo) becomes a team memory project. The same atomic file structure, the same MEMORY.md regeneration, the same optional wiki layer. Multiple team members invoke the same verbs against the shared folder.</p>
+<p>A company-wide memory folder — the "company brain" pattern in use at some organizations — follows the same protocol at organizational scale. Atoms capture organizational facts (people, decisions, milestones, market signals); the wiki synthesizes them into living documents (product strategy, competitive landscape, OKR dashboards). Same protocol, different scope.</p>
+<p>The interesting feature: federation. A user maintaining personal Remember on a project might want to push specific atoms — decisions, people captures, market observations — to the company brain. The protocol's per-folder boundary makes this clean. Each scope is its own folder. Sync between scopes is explicit, user-authorized, per-atom — not bulk, not automatic, not bidirectional.</p>
+<p>I have a "Sync to company brain" button sketched in the design doc, not yet implemented. It surfaces a four-step flow: select atoms, select target scope, preview the diff, confirm. The user controls what crosses the boundary; nothing is automatic.</p>
+<p>This is what excites me most. The per-folder model preserves per-context relevance (a household admin folder and a work project don't bleed into each other). And the same protocol that works for one person also works for an organization. Federation through explicit sync, not implicit centralization.</p>
+
+<h2>Try it</h2>
+<p><a href="https://sujayath.com/remember/">sujayath.com/remember</a> — MIT licensed, free.</p>
+<p>There's a 7,000-word paper that goes deeper into every design decision (going on arXiv soon). DM me if you want an early read.</p>
+<p>Building this taught me more about memory design than anything else I've worked on. If you're building memory systems and any of what I said resonates — would love to compare notes.</p>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <p>© 2026 Sujayath</p>
+    <a href="https://x.com/sujayath" target="_blank" rel="noopener" class="footer-social">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</footer>
+</body>
+</html>
