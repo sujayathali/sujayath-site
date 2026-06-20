@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Memory Shouldn't Live in Someone Else's Database — Sujayath</title>
+<title>AI Memory Shouldn't Live in Someone Else's Database</title>
 <meta name="description" content="When the US switched off Fable 5, I moved every Claude session to 4.8 overnight and lost zero memory. Why your AI memory should live in plain local files you own - the Remember protocol.">
 <link rel="canonical" href="https://sujayath.com/blog/ai-memory.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,6 +84,19 @@
 <p><a href="https://sujayath.com/remember/">sujayath.com/remember</a> — MIT licensed, free.</p>
 <p>There's a 7,000-word paper that goes deeper into every design decision (going on arXiv soon). DM me if you want an early read.</p>
 <p>Building this taught me more about memory design than anything else I've worked on. If you're building memory systems and any of what I said resonates — would love to compare notes.</p>
+
+<section>
+<h2>Frequently Asked Questions</h2>
+<h3>Where should AI memory be stored?</h3>
+<p>Locally, in plain files you own, scoped per project — not in a vendor's database. That way, switching models or losing access to one loses zero memory.</p>
+<h3>What happens to your AI memory when you switch models or a model is shut down?</h3>
+<p>If your memory lives in plain local files, nothing — you keep it and point the next model at it. If it lives in a vendor's database, it goes with the vendor.</p>
+<h3>What's wrong with vendor-controlled AI memory like ChatGPT Memory?</h3>
+<p>It's locked to one provider and lives in their database. When the vendor changes pricing, models, or terms — or a model gets pulled — your memory goes with it.</p>
+<h3>What is the Remember plugin?</h3>
+<p>An open-source (MIT) memory plugin for Claude Cowork and Claude Code that captures your context as typed markdown files on your own machine. Get it at <a href="https://sujayath.com/remember/">sujayath.com/remember</a>.</p>
+</section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where should AI memory be stored?","acceptedAnswer":{"@type":"Answer","text":"Locally, in plain files you own, scoped per project — not in a vendor's database. That way, switching models or losing access to one loses zero memory."}},{"@type":"Question","name":"What happens to your AI memory when you switch models or a model is shut down?","acceptedAnswer":{"@type":"Answer","text":"If your memory lives in plain local files, nothing — you keep it and point the next model at it. If it lives in a vendor's database, it goes with the vendor."}},{"@type":"Question","name":"What's wrong with vendor-controlled AI memory like ChatGPT Memory?","acceptedAnswer":{"@type":"Answer","text":"It's locked to one provider and lives in their database. When the vendor changes pricing, models, or terms — or a model gets pulled — your memory goes with it."}},{"@type":"Question","name":"What is the Remember plugin?","acceptedAnswer":{"@type":"Answer","text":"An open-source (MIT) memory plugin for Claude Cowork and Claude Code that captures your context as typed markdown files on your own machine. Get it at sujayath.com/remember."}}]}</script>
 </div>
 <footer class="footer">
   <div class="footer-inner">

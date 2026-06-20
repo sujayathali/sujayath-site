@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Concepts That Every Founder / PM Should Know — Sujayath</title>
+<title>31 AI Concepts Every Founder & PM Should Know, Explained</title>
+<meta name="description" content="LLMs, RAG, agents, MCP and 27 more AI concepts explained in plain English for founders and PMs — no jargon, just what builders need.">
 <link rel="canonical" href="https://sujayath.com/blog/ai-concepts.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -20,11 +21,85 @@
 </nav>
 <div class="page-header">
   <a href="../" class="back-link">← Back to all posts</a>
-  <h1>AI Concepts That Every Founder / PM Should Know</h1>
+  <h1>31 AI Concepts Every Founder &amp; PM Should Know</h1>
   <div class="page-meta">February 2026 · AI</div>
 </div>
 <div class="prose">
-<h1>AI concepts that every founder / PM should know. The no-jargon version.</h1><ol><li>AI: AI is software that can do things we used to think only humans could do. It is a software that can learn by itself from data and uses it to predict or generate something.</li><li>Predictive AI vs Generative AI: Predictive AI looks at data and says &ldquo;what&rsquo;s likely to happen next?&rdquo; - fraud detection, demand forecasting, lead scoring. Generative AI looks at data and says &ldquo;let me create something new&rdquo; - text, images, code, music.</li><li>Machine Learning &amp; Deep Learning: Machine Learning is AI that learns patterns from data instead of being manually programmed. Deep Learning is a subset of ML that uses neural networks (layers of math inspired by the human brain). Deep Learning works well on messy data like text, images, and audio.</li><li>Large Language Model (LLM): Think of it as an incredibly well-read intern who has read most of the internet. Under the hood, it just predicts the next word extremely well that it can write essays, code, and reason through problems. GPT, Claude, Gemini - all LLMs.</li><li>Foundation Model: Instead of building a separate AI for each job, you train one giant model and fine-tune it. Like building one strong engine and putting it in cars, trucks, and boats.</li><li>Training vs Inference: Training = teaching the AI. Expensive. Takes weeks. Costs a lot. Indirect / R&amp;D Cost. Inference = using the trained AI. Cheap per query. Milliseconds. Direct Cost.</li><li>Prompting / Prompt Engineering: The art of asking AI the right question to get the right answer. A vague prompt gives a vague answer. A specific prompt with context, examples, and constraints gives a brilliant answer. Levels of Prompting: Zero-shot: Just ask. No examples. Few-shot: Give 2-3 examples in your prompt. Chain-of-thought: Ask the AI to think step by step.</li><li>Tokens: LLMs don&rsquo;t read words - they read tokens. A token ≈ ¾ of a word. You pay per token. Every API call costs money based on tokens in (prompt) and tokens out (response).</li><li>Context Window: The amount of text an AI can &ldquo;see&rdquo; at once. Its working memory. Small context window = AI forgets earlier parts of your conversation.</li><li>Hallucination: When AI confidently makes up facts that sound completely real. It doesn&rsquo;t &ldquo;know&rdquo; it&rsquo;s lying. It&rsquo;s pattern-matching and sometimes the pattern leads somewhere wrong.</li><li>RAG (Retrieval-Augmented Generation): Instead of relying on what AI memorized during training, you feed it your own documents at query time. Reduces hallucination.</li><li>Fine-Tuning: Taking a pre-trained model and training it further on your specific data. Like hiring a generalist doctor and sending her to specialize in cardiology. More expensive than prompting. Cheaper than training from scratch.</li><li>Embedding: Converting text (or images) into numbers that capture meaning for AI. &ldquo;Happy&rdquo; and &ldquo;Joyful&rdquo; → similar numbers. &ldquo;Happy&rdquo; and &ldquo;Refrigerator&rdquo; → very different. This is how AI &ldquo;understands&rdquo; similarity.</li><li>Vector Database: Traditional databases find exact &ldquo;word&rdquo; matches. Vector databases find &ldquo;similar&rdquo; things. User searches &ldquo;shoes for flat feet&rdquo; → vector DB finds relevant products even if no description uses those exact words.</li><li>Agent: An AI that doesn&rsquo;t just answer questions - it takes actions. Browse the web, call APIs, write code, book meetings.</li><li>Agentic Workflow: Instead of one big prompt → one big answer, you break the task into steps. Agent 1 researches. Agent 2 drafts. Agent 3 reviews.</li><li>Tool Use / Function Calling: Giving AI the ability to use external tools - search engines, databases, APIs. The AI decides when to use which tool.</li><li>Coding Agents: AI that writes, tests, debugs, and ships code autonomously. You describe what you want in plain English, the agent writes the code. Ex: Claude Code, Codex, Cursor.</li><li>Computer-Using Agents (CUA): AI that can see and use your screen - click buttons, fill forms, navigate apps - just like a human would. Ex: Claude Cowork, OpenAI&rsquo;s Operator.</li><li>Multimodal AI: AI that understands and generates all modes - text, images, audio, video, and code. Your product can accept a photo and return text, or accept text and return an image.</li><li>Diffusion Model: The tech behind AI image generation (Midjourney, DALL-E, Stable Diffusion). Starts with noise, gradually removes it to create an image.</li><li>Synthetic Data: Training data generated by AI itself, not collected from the real world. When you don&rsquo;t have enough real data, or real data has privacy issues, you generate synthetic data.</li><li>Guardrails: Rules and filters around AI to prevent it from going off-script. Prevent harmful content, off-topic answers, leaking confidential data.</li><li>Human-in-the-Loop (HITL): AI does 90% of the work. A human reviews the last 10%. Needed when mistakes are costly - medical, legal, financial.</li><li>AI-Native vs AI-Enabled: AI-enabled = existing product with AI bolted on (chatbot on your PowerPoint). AI-native = built from the ground up around AI (Gamma).</li><li>Temperature: Controls how &ldquo;creative&rdquo; vs &ldquo;predictable&rdquo; the AI is. Low temperature = safe, consistent, factual. Ex: Customer Support AI. High temperature = creative, varied, crank it up. Ex: Brainstorming.</li><li>Overfitting: When AI memorizes training data instead of learning patterns. Like a student who memorized past exam answers but can&rsquo;t solve a new problem.</li><li>Eval (Evaluation): QA for the AI world. How you check if your AI is actually doing what it was supposed to do in all cases. Checks for Accuracy, Relevance, Helpfulness, Safety. Eval is pre-ship. Post-ship, you need what&rsquo;s called monitoring to catch drift, cost spikes, and latency.</li><li>MCP (Model Context Protocol): A standard that lets AI connect to external tools and data in a plug-and-play way. Think USB-C for AI - one standard connector instead of custom integrations for every tool.</li><li>Explainability (XAI): Can you explain why AI made a decision? In finance, healthcare, insurance - &ldquo;the AI said so&rdquo; is not acceptable.</li><li>The &ldquo;Last Mile&rdquo; Problem: AI can get you 80% of the way shockingly fast. That last 20% - handling edge cases, weird inputs/outputs, industry-specific nuance, getting output just right - is where all the time and money goes. Most failed AI products didn&rsquo;t fail at the AI. They failed at the last mile.</li></ol>
+<p>The no-jargon version. From LLMs and RAG to agents and MCP — 31 AI concepts explained in plain English for founders and PMs.</p>
+<h2>1. AI</h2>
+<p>AI is software that can do things we used to think only humans could do. It is a software that can learn by itself from data and uses it to predict or generate something.</p>
+<h2>2. Predictive AI vs Generative AI</h2>
+<p>Predictive AI looks at data and says &ldquo;what&rsquo;s likely to happen next?&rdquo; - fraud detection, demand forecasting, lead scoring. Generative AI looks at data and says &ldquo;let me create something new&rdquo; - text, images, code, music.</p>
+<h2>3. Machine Learning &amp; Deep Learning</h2>
+<p>Machine Learning is AI that learns patterns from data instead of being manually programmed. Deep Learning is a subset of ML that uses neural networks (layers of math inspired by the human brain). Deep Learning works well on messy data like text, images, and audio.</p>
+<h2>4. Large Language Model (LLM)</h2>
+<p>Think of it as an incredibly well-read intern who has read most of the internet. Under the hood, it just predicts the next word extremely well that it can write essays, code, and reason through problems. GPT, Claude, Gemini - all LLMs.</p>
+<h2>5. Foundation Model</h2>
+<p>Instead of building a separate AI for each job, you train one giant model and fine-tune it. Like building one strong engine and putting it in cars, trucks, and boats.</p>
+<h2>6. Training vs Inference</h2>
+<p>Training = teaching the AI. Expensive. Takes weeks. Costs a lot. Indirect / R&amp;D Cost. Inference = using the trained AI. Cheap per query. Milliseconds. Direct Cost.</p>
+<h2>7. Prompting / Prompt Engineering</h2>
+<p>The art of asking AI the right question to get the right answer. A vague prompt gives a vague answer. A specific prompt with context, examples, and constraints gives a brilliant answer. Levels of Prompting: Zero-shot: Just ask. No examples. Few-shot: Give 2-3 examples in your prompt. Chain-of-thought: Ask the AI to think step by step.</p>
+<h2>8. Tokens</h2>
+<p>LLMs don&rsquo;t read words - they read tokens. A token ≈ ¾ of a word. You pay per token. Every API call costs money based on tokens in (prompt) and tokens out (response).</p>
+<h2>9. Context Window</h2>
+<p>The amount of text an AI can &ldquo;see&rdquo; at once. Its working memory. Small context window = AI forgets earlier parts of your conversation.</p>
+<h2>10. Hallucination</h2>
+<p>When AI confidently makes up facts that sound completely real. It doesn&rsquo;t &ldquo;know&rdquo; it&rsquo;s lying. It&rsquo;s pattern-matching and sometimes the pattern leads somewhere wrong.</p>
+<h2>11. RAG (Retrieval-Augmented Generation)</h2>
+<p>Instead of relying on what AI memorized during training, you feed it your own documents at query time. Reduces hallucination.</p>
+<h2>12. Fine-Tuning</h2>
+<p>Taking a pre-trained model and training it further on your specific data. Like hiring a generalist doctor and sending her to specialize in cardiology. More expensive than prompting. Cheaper than training from scratch.</p>
+<h2>13. Embedding</h2>
+<p>Converting text (or images) into numbers that capture meaning for AI. &ldquo;Happy&rdquo; and &ldquo;Joyful&rdquo; → similar numbers. &ldquo;Happy&rdquo; and &ldquo;Refrigerator&rdquo; → very different. This is how AI &ldquo;understands&rdquo; similarity.</p>
+<h2>14. Vector Database</h2>
+<p>Traditional databases find exact &ldquo;word&rdquo; matches. Vector databases find &ldquo;similar&rdquo; things. User searches &ldquo;shoes for flat feet&rdquo; → vector DB finds relevant products even if no description uses those exact words.</p>
+<h2>15. Agent</h2>
+<p>An AI that doesn&rsquo;t just answer questions - it takes actions. Browse the web, call APIs, write code, book meetings.</p>
+<h2>16. Agentic Workflow</h2>
+<p>Instead of one big prompt → one big answer, you break the task into steps. Agent 1 researches. Agent 2 drafts. Agent 3 reviews.</p>
+<h2>17. Tool Use / Function Calling</h2>
+<p>Giving AI the ability to use external tools - search engines, databases, APIs. The AI decides when to use which tool.</p>
+<h2>18. Coding Agents</h2>
+<p>AI that writes, tests, debugs, and ships code autonomously. You describe what you want in plain English, the agent writes the code. Ex: Claude Code, Codex, Cursor.</p>
+<h2>19. Computer-Using Agents (CUA)</h2>
+<p>AI that can see and use your screen - click buttons, fill forms, navigate apps - just like a human would. Ex: Claude Cowork, OpenAI&rsquo;s Operator.</p>
+<h2>20. Multimodal AI</h2>
+<p>AI that understands and generates all modes - text, images, audio, video, and code. Your product can accept a photo and return text, or accept text and return an image.</p>
+<h2>21. Diffusion Model</h2>
+<p>The tech behind AI image generation (Midjourney, DALL-E, Stable Diffusion). Starts with noise, gradually removes it to create an image.</p>
+<h2>22. Synthetic Data</h2>
+<p>Training data generated by AI itself, not collected from the real world. When you don&rsquo;t have enough real data, or real data has privacy issues, you generate synthetic data.</p>
+<h2>23. Guardrails</h2>
+<p>Rules and filters around AI to prevent it from going off-script. Prevent harmful content, off-topic answers, leaking confidential data.</p>
+<h2>24. Human-in-the-Loop (HITL)</h2>
+<p>AI does 90% of the work. A human reviews the last 10%. Needed when mistakes are costly - medical, legal, financial.</p>
+<h2>25. AI-Native vs AI-Enabled</h2>
+<p>AI-enabled = existing product with AI bolted on (chatbot on your PowerPoint). AI-native = built from the ground up around AI (Gamma).</p>
+<h2>26. Temperature</h2>
+<p>Controls how &ldquo;creative&rdquo; vs &ldquo;predictable&rdquo; the AI is. Low temperature = safe, consistent, factual. Ex: Customer Support AI. High temperature = creative, varied, crank it up. Ex: Brainstorming.</p>
+<h2>27. Overfitting</h2>
+<p>When AI memorizes training data instead of learning patterns. Like a student who memorized past exam answers but can&rsquo;t solve a new problem.</p>
+<h2>28. Eval (Evaluation)</h2>
+<p>QA for the AI world. How you check if your AI is actually doing what it was supposed to do in all cases. Checks for Accuracy, Relevance, Helpfulness, Safety. Eval is pre-ship. Post-ship, you need what&rsquo;s called monitoring to catch drift, cost spikes, and latency.</p>
+<h2>29. MCP (Model Context Protocol)</h2>
+<p>A standard that lets AI connect to external tools and data in a plug-and-play way. Think USB-C for AI - one standard connector instead of custom integrations for every tool.</p>
+<h2>30. Explainability (XAI)</h2>
+<p>Can you explain why AI made a decision? In finance, healthcare, insurance - &ldquo;the AI said so&rdquo; is not acceptable.</p>
+<h2>31. The &ldquo;Last Mile&rdquo; Problem</h2>
+<p>AI can get you 80% of the way shockingly fast. That last 20% - handling edge cases, weird inputs/outputs, industry-specific nuance, getting output just right - is where all the time and money goes. Most failed AI products didn&rsquo;t fail at the AI. They failed at the last mile.</p>
+<section>
+<h2>Frequently Asked Questions</h2>
+<h3>What's the difference between RAG and fine-tuning?</h3>
+<p>RAG retrieves relevant documents at query time and feeds them to the model; fine-tuning trains new behavior into the model's weights. RAG is cheaper to update and reduces hallucination; fine-tuning changes the model itself.</p>
+<h3>What is MCP in AI?</h3>
+<p>MCP (Model Context Protocol) is an open standard that lets AI models connect to external tools and data sources through one consistent interface — think USB-C for AI.</p>
+<h3>What's the difference between AI-native and AI-enabled?</h3>
+<p>AI-enabled means an existing product with AI bolted on, like a chatbot added to legacy software. AI-native means built from the ground up around AI, where the core workflow assumes it.</p>
+<h3>What is the “last mile” problem in AI products?</h3>
+<p>AI gets you about 80% of the way fast; the last 20% — edge cases, weird inputs, industry nuance, getting the output exactly right — is where most of the time, cost, and failed products live.</p>
+</section>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between RAG and fine-tuning?", "acceptedAnswer": {"@type": "Answer", "text": "RAG retrieves relevant documents at query time and feeds them to the model; fine-tuning trains new behavior into the model's weights. RAG is cheaper to update and reduces hallucination; fine-tuning changes the model itself."}}, {"@type": "Question", "name": "What is MCP in AI?", "acceptedAnswer": {"@type": "Answer", "text": "MCP (Model Context Protocol) is an open standard that lets AI models connect to external tools and data sources through one consistent interface — think USB-C for AI."}}, {"@type": "Question", "name": "What's the difference between AI-native and AI-enabled?", "acceptedAnswer": {"@type": "Answer", "text": "AI-enabled means an existing product with AI bolted on, like a chatbot added to legacy software. AI-native means built from the ground up around AI, where the core workflow assumes it."}}, {"@type": "Question", "name": "What is the “last mile” problem in AI products?", "acceptedAnswer": {"@type": "Answer", "text": "AI gets you about 80% of the way fast; the last 20% — edge cases, weird inputs, industry nuance, getting the output exactly right — is where most of the time, cost, and failed products live."}}]}</script>
 </div>
 <footer class="footer">
   <div class="footer-inner">
