@@ -3,7 +3,7 @@
    ============================================ */
 
 :root {
-  --color-bg: #fafaf8;
+  --color-bg: #faf6f1;
   --color-surface: #ffffff;
   --color-text: #1a1a1a;
   --color-text-secondary: #6b6b6b;
@@ -463,3 +463,52 @@ img { max-width: 100%; display: block; }
   .promo-banner__body { text-align: center; }
   .promo-banner__cta { width: 100%; }
 }
+
+
+/* ============================================
+   REDESIGN — warm founder landing (2026-06)
+   ============================================ */
+.nav-links a.nav-cta { color: var(--color-accent); font-weight: 600; }
+.nav-links a.nav-cta::after { display: none; }
+
+.lede-wash { width: 100%; background: linear-gradient(180deg, #fcefe7 0%, var(--color-bg) 100%); border-bottom: 0.5px solid #f0e5db; }
+.lede { max-width: var(--max-width); margin: 0 auto; padding: 44px var(--space-md) 40px; }
+.lede-inner { display: flex; gap: 28px; align-items: flex-start; }
+.lede-portrait { position: relative; flex: 0 0 auto; width: 104px; height: 104px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #f1cdbe, #e0a087); border: 3px solid #fff; box-shadow: 0 3px 14px rgba(196,90,60,0.18); display: flex; align-items: center; justify-content: center; }
+.lede-portrait__mono { font-family: var(--font-display); font-weight: 500; font-size: 34px; color: #8a3c22; }
+.lede-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lede-greet { font-family: var(--font-display); font-style: italic; font-size: 16px; color: #9a6f5c; margin-bottom: 10px; }
+.lede-headline { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 5.2vw, 42px); line-height: 1.12; letter-spacing: -0.3px; color: var(--color-text); margin-bottom: 16px; }
+.lede-headline em { font-style: italic; color: var(--color-accent); }
+.lede-story { font-size: 17px; line-height: 1.6; color: #4a423b; max-width: 560px; }
+.lede-creds { font-size: 13px; color: #a3978b; margin: 24px 0; }
+.lede-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--color-accent); color: #fff; font-size: 14px; font-weight: 600; padding: 11px 22px; border-radius: 999px; transition: background .2s ease; }
+.btn-primary:hover { background: #ab4a30; }
+.btn-secondary { background: #fff; color: var(--color-accent); border: 1px solid #e6c3b6; font-size: 14px; font-weight: 600; padding: 11px 20px; border-radius: 999px; }
+.btn-secondary:hover { background: #fef4f1; }
+.lede-social { display: flex; gap: 14px; margin-left: 4px; color: #b39a8c; }
+.lede-social a { display: inline-flex; color: inherit; }
+.lede-social a:hover { color: var(--color-accent); }
+
+.post-tag { color: var(--color-accent); }
+
+.poems-strip { max-width: var(--max-width); margin: var(--space-lg) auto var(--space-md); padding: 0 var(--space-md); }
+.poems-strip__inner { background: #fbeee6; border: 0.5px solid #f1ddd0; border-radius: 14px; padding: 26px 30px; }
+.poems-strip__label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.poems-strip__verse { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.45; color: #5a4a40; margin: 10px 0; }
+.poems-strip__meta { font-size: 13px; color: #a3877a; }
+.poems-strip__meta a { color: #a3877a; }
+.poems-strip__meta a:hover { color: var(--color-accent); }
+
+@media (max-width: 640px) {
+  .lede-inner { flex-direction: column; gap: 18px; }
+  .lede-portrait { width: 84px; height: 84px; }
+  .lede-actions { gap: 10px; }
+}
+
+
+/* poem verse formatting */
+.prose.verse { font-size: 17px; }
+.prose.verse p { line-height: 1.75; margin: 0 0 1.5em; }
+.prose.verse p:last-child { margin-bottom: 0; }
