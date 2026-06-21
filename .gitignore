@@ -3,3 +3,12 @@
 
 # macOS
 .DS_Store
+
+# Editor / tooling
+.claude/
+
+# Local source & backup files (not for deploy)
+archive/
+WX6A9327.JPG
+media/Sujayath_Pic.jpg
+media/Sujayath_SidePic.jpeg
