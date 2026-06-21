@@ -480,9 +480,9 @@ img { max-width: 100%; display: block; }
 .lede-greet { font-family: var(--font-display); font-style: italic; font-size: 16px; color: #9a6f5c; margin-bottom: 10px; }
 .lede-headline { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 5.2vw, 42px); line-height: 1.12; letter-spacing: -0.3px; color: var(--color-text); margin-bottom: 16px; }
 .lede-headline em { font-style: italic; color: var(--color-accent); }
-.lede-story { font-size: 17px; line-height: 1.6; color: #4a423b; max-width: 560px; }
+.lede-story { font-size: 17px; line-height: 1.65; color: #4a423b; max-width: 560px; }
 .lede-creds { font-size: 13px; color: #a3978b; margin: 24px 0; }
-.lede-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lede-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 .btn-primary { background: var(--color-accent); color: #fff; font-size: 14px; font-weight: 600; padding: 11px 22px; border-radius: 999px; transition: background .2s ease; }
 .btn-primary:hover { background: #ab4a30; }
 .btn-secondary { background: #fff; color: var(--color-accent); border: 1px solid #e6c3b6; font-size: 14px; font-weight: 600; padding: 11px 20px; border-radius: 999px; }
