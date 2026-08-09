@@ -322,6 +322,22 @@ img { max-width: 100%; display: block; }
   color: var(--color-text-tertiary);
 }
 
+.post-hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-md) 0;
+}
+.post-hero img {
+  width: 100%;
+  border-radius: 14px;
+  border: 0.5px solid var(--color-border);
+}
+.post-hero figcaption {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-sm);
+}
+
 .prose {
   max-width: var(--max-width);
   margin: 0 auto;

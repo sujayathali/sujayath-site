@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Coding Is Now Dangerous</title>
+<meta name="description" content="AI code is non-deterministic - the real logic lives in weights, context and sampling, not in the lines you wrote. Reading it yourself buys false confidence. Check the output, not the code.">
+<link rel="canonical" href="https://sujayath.com/blog/self-coding-is-dangerous.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Self-Coding Is Now Dangerous">
+<meta property="og:description" content="AI code is non-deterministic - the real logic lives in weights, context and sampling, not in the lines you wrote. Reading it yourself buys false confidence. Check the output, not the code.">
+<meta property="og:url" content="https://sujayath.com/blog/self-coding-is-dangerous.html">
+<meta property="og:image" content="https://sujayath.com/media/self-coding-is-dangerous-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20260809a">
+</head>
+<body>
+<nav class="nav">
+  <a href="../" class="nav-logo">S</a>
+  <div class="nav-links">
+    <a href="../">Writing</a>
+    <a href="../blog/poems.html">Poems</a>
+    <a href="../about.html">About</a>
+    <a href="/remember/" class="nav-cta">Get the plugin &rarr;</a>
+  </div>
+</nav>
+<div class="page-header">
+  <a href="../" class="back-link">← Back to all posts</a>
+  <h1>Self-Coding Is Now Dangerous</h1>
+  <div class="page-meta">July 2026 · AI</div>
+</div>
+<figure class="post-hero">
+  <img src="../media/self-coding-is-dangerous-hero.png" alt="A developer studying a wall of code that fans out into a sprawling dependency graph, its branches breaking into red fragments at the far edge." onerror="this.remove()">
+</figure>
+<div class="prose">
+<p>For as long as software has existed, we have always typed the code. You opened the file, followed the logic, wrote the code, and code-reviewed it (yourself, or by a peer), until you were satisfied it would do what it claimed. For ordinary code, that still holds. Deterministic code does exactly what its source says, every time.</p>
+<p>But that is not the code we are writing anymore.</p>
+<p>Today the code has become non-deterministic. More and more of what we build now runs on AI logic. A function no longer computes an answer; it asks a model for one. A branch is no longer an if-statement; it is a prompt. An agent decides, at runtime, what to do next.</p>
+<p>So, the same input can produce different behavior on different runs, because the real logic no longer lives in the lines you wrote. It lives in a model&rsquo;s weights, memory, retrieved data, orchestration, sampling, settings, and more. So it shifts with context, with temperature, with version.</p>
+<p>Now look at that code. You see a function call and a prompt string. It looks orderly, and you come away feeling you know what it does. You do not. The behavior was never in the text. And worse, the text gave you confidence anyway.</p>
+<p>That false confidence is dangerous, and new studies are starting to measure it. Researchers at Stanford ran a controlled study of forty-seven developers across multiple security tasks. The developers using an AI assistant wrote less secure code, yet believed it was more secure. They were applying an old-world habit to code that no longer works that way.</p>
+<p>In fact, my own belief is that even conventional software is not always deterministic; concurrency, external services, clocks, randomness, and undefined behavior already make it non-deterministic. But that was tolerable. Nondeterminism itself is not the real danger. False confidence is.</p>
+<p>That is why the craft has to change. Writing the code yourself, and reviewing it yourself or with a peer, was how you earned confidence that it worked. For non-deterministic code, that confidence is false. You cannot hand-verify behavior that shifts from run to run, and your unit tests cannot pin it either.</p>
+<p>So you stop judging the code you wrote and start &ldquo;evaluating&rdquo; what it does &mdash; many runs, many cases, counting how often it is right, held to a bar. That is what evals are, and that is why they, not your own hands, become the thing you trust.</p>
+<p>Check the output, not the code.</p>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <p>© 2026 Sujayath</p>
+    <a href="https://x.com/sujayath" target="_blank" rel="noopener" class="footer-social">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</footer>
+</body>
+</html>
