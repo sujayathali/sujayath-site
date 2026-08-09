@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Notes from Building AI Agents</title>
+<meta name="description" content="Nine field notes from building AI agents - why silent steps get skipped, why a rendered &quot;done&quot; proves nothing, and why the file on disk is the only real test of completion.">
+<link rel="canonical" href="https://sujayath.com/blog/field-notes-building-ai-agents.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Field Notes from Building AI Agents">
+<meta property="og:description" content="Nine field notes from building AI agents - why silent steps get skipped, why a rendered &quot;done&quot; proves nothing, and why the file on disk is the only real test of completion.">
+<meta property="og:url" content="https://sujayath.com/blog/field-notes-building-ai-agents.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20260809a">
+</head>
+<body>
+<nav class="nav">
+  <a href="../" class="nav-logo">S</a>
+  <div class="nav-links">
+    <a href="../">Writing</a>
+    <a href="../blog/poems.html">Poems</a>
+    <a href="../about.html">About</a>
+    <a href="/remember/" class="nav-cta">Get the plugin &rarr;</a>
+  </div>
+</nav>
+<div class="page-header">
+  <a href="../" class="back-link">← Back to all posts</a>
+  <h1>Field Notes from Building AI Agents</h1>
+  <div class="page-meta">July 2026 · AI</div>
+</div>
+<div class="prose">
+<blockquote>Some field notes from building AI agents.</blockquote>
+<p>1. An agent silently skips the steps that produce no visible output. A step that prints a line, even one that says &ldquo;nothing&rdquo;, reliably runs. So make every required step leave a mark, and treat a missing mark as a defect.</p>
+<p>2. An agent confirming to you that the work happened doesn&rsquo;t mean it actually happened. A rendered &ldquo;done&rdquo; could be just another confident self-report hallucinated by the agent. The real test of completion is the file on disk, not the text on the screen.</p>
+<p>3. How do you know an agent ran the real step? Put a value in the output that the model cannot reproduce, such as a version number or a hash. If that value is present, the step ran. If it is missing or stale, the agent hallucinated.</p>
+<p>4. Almost every real bug I found came from shipping a small change and watching what actually reached the disk. It did not come from unit test cases where I thought about what might go wrong. The invisible failures mean you cannot reach them by thinking. Ship, then look.</p>
+<p>5. Sometimes an agent cannot solve a problem. Not because the problem is hard, but because the agent is buried in too much context. The fix is not more context. Start a fresh sub-agent with none. It gets the same problem and a clean slate.</p>
+<p>6. Docs decay. Atoms do not. Word documents and slides get versioned, archived, and forgotten. The knowledge was real; the format let it rot. Distill each document to its core points, and store those as small plain files &mdash; atoms &mdash; that your AI reads directly.</p>
+<p>7. You do not need a frontier model for every agent. Use the expensive model for the supervisor that plans and reviews the work. The workers under it handle narrow, well-defined tasks, so cheaper open-source models are enough.</p>
+<p>8. Do not keep your AI&rsquo;s memory in a vendor&rsquo;s database. Keep it in a place that you own. Then, if you switch models or lose one, you lose nothing. I move across models without losing context.</p>
+<p>9. Do not run everything on a single model. Spread your work across several. When one goes down or degrades, the others keep running.</p>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <p>© 2026 Sujayath</p>
+    <a href="https://x.com/sujayath" target="_blank" rel="noopener" class="footer-social">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</footer>
+</body>
+</html>
